@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: roboto; }
+
+.container {
+  width: 90%;
+  margin: auto; }
+
+.flash {
+  text-align: center;
+  box-shadow: 3px 3px 5px 0px rgba(134, 134, 134, 0.925);
+  animation-name: inline-u97fbb685;
+  animation-duration: 1s;
+  animation-iteration-count: linear; }
+
+@keyframes inline-u97fbb685 {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0); } }
+
+.flash-show {
+  font-size: 14px;
+  padding: 7px 0px;
+  height: auto;
+  animation-name: inline-ued868414;
+  animation-duration: 1s;
+  animation-iteration-count: linear; }
+
+@keyframes inline-ued868414 {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+
+.success-message {
+  color: white;
+  background-color: rgba(56, 196, 56, 0.925); }
+
+.danger-message {
+  color: white;
+  background-color: rgba(207, 69, 69, 0.925); }
+
+.add-blur {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(13x);
+  -ms-filter: blur(3px); }

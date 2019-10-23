@@ -1,0 +1,35 @@
+<%-include('../partial/head.ejs') %>
+<link rel="stylesheet" href="/style/story.css">
+</head>
+
+<%-include('../partial/navigation.ejs') %>
+
+
+<div class="container">
+
+ 
+  <%-include('../partial/suceess_msg.ejs', { success_msg: success_msg}) %>
+  <%-include('../partial/error_msg.ejs', { error_msg: error_msg}) %>
+ 
+
+  <div class="story-details_container">
+    <div class="story-box">
+      <h2 class="story-title"> <%=story.title %> </h2>
+    </div>
+    <p class="story-description"><%=story.description %></p>
+
+    <form action="/stories/edit-story" method="get">
+      <input type="hidden" name="title" value="<%=story.title %>">
+      <input type="hidden" name="description" value="<%=story.description %>">
+      <input type="hidden" name="storyId" value="<%=story._id %>">
+      <button class="no-button" type="submit">
+          <div class="edit-icon"><i class="fas fa-pen"></i></div>
+      </button>
+    </form>
+  
+  </div>
+</div>
+
+
+<%-include('../partial/footer.ejs') %>
+<%-include('../partial/end.ejs') %>

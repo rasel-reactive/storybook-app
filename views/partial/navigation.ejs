@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/style/backdrop.css">
+<div class="backdrop"></div>
+
+<header>
+  <nav>
+    <div class="menu-icon">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <ul class="logo-title"><a href="/">Story Book</a></ul>
+    <ul class="main-nav">
+      <!-- <li><a href="/" class="<%=path=== '/' ? 'active' : '' %>">Home</a></li> -->
+      <!-- <li><a href="/about" class="<%=path ==='/about' ? 'active' : '' %>">about</a></li> -->
+      <!-- <li><a href="/auth/signup" class="<%=path ==='/auth/signup' ? 'active' : '' %>">Register</a></li> -->
+      <!-- <li><a href="/auth/login" class="<%=path ==='/auth/login' ? 'active' : '' %>">Login</a></li> -->
+      <!-- <li><a href="/stories" class="<%=path ==='/stories' ? 'active' : '' %>">Stories</a></li> -->
+    </ul>
+    <ul class="auth_section">
+      <% if(user) {%>
+      <li class="welcome-user">Welcome <%= user.username %> </li>
+      <li>
+        <a class="logout" href="/auth/logout">
+          <i class="fa fa-sign-out-alt"></i>Logout
+        </a>
+      </li>
+      <%} else { %>
+      <li>
+        <a class="logout <%=path === '/auth/signup' ? 'active' : '' %>" href="/auth/signup">
+          <i class="fa fa-user-plus"></i>
+          Signup
+        </a>
+      </li>
+      <li>
+        <a class="logout <%=path === '/auth/login' ? 'active' : '' %>" href="/auth/login">
+          <i class="fa fa-sign-in-alt"></i>
+          Login
+        </a>
+      </li>
+      <% } %>
+
+    </ul>
+  </nav>
+</header>
+
+<%- include('./sidenav.ejs')%>
+
+<div class="spacer-after-header"></div>

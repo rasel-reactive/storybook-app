@@ -1,0 +1,36 @@
+<%-include('../partial/head.ejs') %>
+  <link rel="stylesheet" href="/style/story.css">
+</head>
+
+<%-include('../partial/navigation.ejs') %>
+
+
+
+<div class="container">
+
+  <% if(success_msg){ %>
+    <%-include('../partial/suceess_msg.ejs', { success_msg: success_msg}) %>
+  <% } %>
+
+
+  <div class="story-container">
+
+    <% if(stories.length <= 0) { %>
+      <h2 class="story-title">No Your Story Published Yet</h2>
+    <% } %>
+
+
+    <% stories.forEach(function(story){ %>
+      <div class="story-box">
+        <h2 class="story-title"> <%=story.title %> </h2>
+        <p class="story-description"><%=story.description %></p>
+        <a href="/stories/details/<%=story._id%>">Details</a>
+        <a href="/stories/delete/<%=story._id%>">Delete</a>
+      </div>
+    <% }) %>
+
+  </div>
+</div>
+
+<%-include('../partial/footer.ejs') %>
+<%-include('../partial/end.ejs') %>

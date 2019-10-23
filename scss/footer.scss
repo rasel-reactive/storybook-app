@@ -1,0 +1,16 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+
+
+
+
+footer{
+  background-color: $bg-primary;
+  color: $text-primary;
+  font-size: 14px;
+  padding: 10px 0px;
+  text-align: center;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+}

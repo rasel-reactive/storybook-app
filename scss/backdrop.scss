@@ -1,0 +1,39 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+@import './media-queries.scss';
+
+
+
+
+.hide-backdrop{
+  // @include inline-animation(1s){
+  //   0%{ width: 100% }
+  //   100%{  width: 0 }
+  // }
+  width: 0
+}
+
+
+.backdrop{
+  // background-color: rgba(255, 255, 255, 0.336);
+  height: 100%;
+  width: 0%;
+  font-size: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  overflow: hidden;
+}
+
+.show-backdrop{
+  @include inline-animation(1s){
+    0%{ opacity: 0;}
+    100%{ opacity: 1;}
+  }
+
+  font-size: 16px;
+  width:100%;
+  opacity: 1;
+}
+

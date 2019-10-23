@@ -1,0 +1,50 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+@import './media-queries.scss';
+
+
+
+
+.story-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .story-box {
+    background-color: rgb(226, 228, 228);
+    min-height: 200px;
+    min-width: 290px;
+    padding: 10px;
+    margin: 10px 0px;
+
+    .story-title {
+      text-align: center;
+    }
+
+    .story-description {
+      text-align: center;
+    }
+  }
+}
+
+.story-details_container {
+  text-align: center;
+
+  .story-title {
+    font-size: 60px;
+    color: rgb(71, 71, 71);
+    font-weight: bold;
+  }
+
+  .story-description {
+    font-size: 16px;
+    color: rgb(104, 104, 104);
+  }
+
+}
+.no-button{
+  border: none;
+  outline: none;
+  background: transparent;
+}

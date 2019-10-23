@@ -1,0 +1,12 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+
+
+
+.about{
+  h1{
+    color: red;
+    background-color: red;
+    // @include list-reset;
+  }
+}

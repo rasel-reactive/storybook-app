@@ -1,0 +1,26 @@
+.hide-backdrop {
+  width: 0; }
+
+.backdrop {
+  height: 100%;
+  width: 0%;
+  font-size: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  overflow: hidden; }
+
+.show-backdrop {
+  animation-name: inline-ueaea9b72;
+  animation-duration: 1s;
+  animation-iteration-count: linear;
+  font-size: 16px;
+  width: 100%;
+  opacity: 1; }
+
+@keyframes inline-ueaea9b72 {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

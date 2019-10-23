@@ -1,0 +1,54 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: roboto;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+
+.flash{
+  text-align: center;
+  // height: 0;
+  // overflow: hidden;
+  box-shadow: 3px 3px 5px 0px rgba(134, 134, 134, 0.925);
+  @include inline-animation(1s){
+    0%{ transform: scale(1) }
+    100%{ transform: scale(0);}
+  }
+} 
+
+.flash-show{
+  font-size: 14px;
+  padding: 7px 0px;
+  height: auto;
+  @include inline-animation(1s){
+    0%{ transform: scale(0) }
+    100%{ transform: scale(1) }
+  }
+}
+
+.success-message{
+  color: white;
+  background-color: rgba(56, 196, 56, 0.925);
+}
+
+.danger-message{
+  color: white;
+  background-color: rgba(207, 69, 69, 0.925);
+}
+
+.add-blur{
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(13x);
+  -ms-filter: blur(3px);
+}

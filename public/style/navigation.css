@@ -1,0 +1,72 @@
+header {
+  background-color: #2258bd;
+  padding: 0 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 300; }
+  header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  header nav {
+    display: flex;
+    align-items: center;
+    height: 58px; }
+  header .menu-icon {
+    text-align: start;
+    flex: 4;
+    color: white; }
+  header .logo-title {
+    text-align: center;
+    flex: 4;
+    display: block;
+    text-align: center;
+    font-size: 30px; }
+    header .logo-title a {
+      color: white; }
+    @media (min-width: 0px) and (max-width: 500px) {
+      header .logo-title {
+        font-size: 18px; } }
+  header .auth_section {
+    display: flex;
+    flex: 4;
+    text-align: right;
+    font-size: 14px;
+    color: #e0dfdf;
+    place-content: flex-end; }
+    header .auth_section .welcome-user {
+      font-weight: bold;
+      margin-right: 8px; }
+    header .auth_section .logout .fa {
+      margin-right: 3px; }
+    @media (min-width: 0px) and (max-width: 500px) {
+      header .auth_section {
+        font-size: 11px; }
+        header .auth_section .welcome-user {
+          font-size: 11px; }
+        header .auth_section .logout {
+          font-size: 11px; }
+          header .auth_section .logout .fa {
+            margin-right: 3px;
+            font-size: 11px; } }
+  header .main-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  header li {
+    margin-right: 15px; }
+  header a {
+    text-decoration: none;
+    font-weight: 400;
+    color: #e4e4e4; }
+  header .active {
+    font-weight: 700;
+    color: white; }
+
+.spacer-after-header {
+  height: 58px;
+  width: 100%;
+  display: block; }

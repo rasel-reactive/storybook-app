@@ -1,0 +1,32 @@
+
+//. Sass Media Queries...........
+$HD-width : 1200px;
+$desktop-width : 1024px;
+$tablet-width : 768px;
+$mobile-width : 501px;
+
+@mixin xl {
+  @media (min-width: #{$desktop-width}) and (max-width: 2500px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{ $desktop-width }) and (max-width: #{ $HD-width - 1 }) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1}) {
+    @content;
+  }
+}
+@mixin xs {
+  @media (min-width: 0px) and (max-width: #{$mobile-width - 1}) {
+    @content;
+  }
+}

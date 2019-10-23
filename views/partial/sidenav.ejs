@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/style/sidenav.css">
+
+<nav class="side-nav">
+  <ul class="sidebar-nav">
+    <div class="menu-icon">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <li><a href="/stories">Public Story</a></li>
+    <% if(user){%>
+      <li><a href="/stories/admin-stories">Your Story</a></li>
+      <li><a href="/stories/add-stories">Add Story</a></li>
+    <% } %>
+  </ul>
+</nav>

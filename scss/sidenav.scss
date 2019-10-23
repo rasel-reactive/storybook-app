@@ -1,0 +1,98 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+@import './media-queries.scss';
+
+
+.hide-side-nav{
+  width: 0;
+  font-size: 0px;
+  @include inline-animation(1s){
+    0%{ width: 300px }
+    100%{ width: 0 }
+  }
+}
+
+.side-nav{
+  width: 0vw;
+  height: 100vh;
+  box-shadow: 0 0px 8px 0px #b9a4a4;
+  position: fixed;
+  overflow: hidden;
+  z-index: 350;;
+  left: 0;
+  top: 0;
+  background: white;
+
+  .sidebar-nav{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    .menu-icon{
+      height: 58px;
+      background-color: #2258bd;
+      .fa-bars{
+        text-align: center;
+        line-height: 58px;
+        margin-left: 30px;
+        color: white;
+      }
+    }
+
+    li{
+      padding: 10px;
+      color: white;
+
+      a{
+        color: rgb(27, 27, 27);
+        text-decoration: none;
+        font-weight: bold;
+        font-size: inherit;
+      }
+      a:hover{
+        color: rgb(255, 109, 109);
+        font-weight: bold
+      }
+    }
+  }
+}
+
+.show-sidebar{
+  @include inline-animation(1s){
+    0%{ width: 0vw; font-size: 0px; }
+    100%{ width: 160px;}
+  };
+  width: 160px;
+  font-size: 16px;
+
+
+  @include md{
+    @include inline-animation(1s){
+      0%{ width: 0vw ; font-size: 0px;}
+      100%{ width: 190px }
+    };
+    font-size: 16px;
+    width: 190px
+  }
+
+  @include lg{
+    @include inline-animation(1s){
+      0%{ width: 0vw ; font-size: 0px;}
+      100%{ width: 200px }
+    };
+    font-size: 16px;
+    width: 200px;
+  }
+
+  @include xl{
+    @include inline-animation(1s){
+      0%{ width: 0vw ; font-size: 0px;}
+      100%{ width: 220px }
+    };
+    font-size: 16px;
+    width: 220px
+  }
+}
+

@@ -1,0 +1,61 @@
+<%-include('../partial/head.ejs') %>
+<link rel="stylesheet" href="/style/auth.css">
+</head>
+
+<body>
+  <%-include('../partial/navigation.ejs') %>
+
+  <div class="container">
+    <div class="form-container">
+
+      <%-include('../partial/suceess_msg.ejs', { success_msg: success_msg}) %>
+      <%-include('../partial/error_msg.ejs', { error_msg: error_msg}) %>
+        
+        <% if(passport_error){%>
+          <div class="flash danger-message flash-show"><%=passport_error %></div>
+        <% } %>
+
+      <h2>Login Here</h2>
+
+      <form action="/auth/login" method="post">
+        <div class="form-group">
+          <label for="">Email</label>
+          <div class="input-and-alert">
+            <% if(error.email) { %>
+              <div class="error error-message"><%=error.email %></div>
+            <% } %>
+            <input 
+              class="<%=error.email ? 'error-input' : '' %>"
+              value="<% if(oldInput.email){%><%=oldInput.email %><%}%>" 
+              type="email" 
+              name="email" 
+              placeholder="Enter Your Email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="">Password</label>
+          <div class="input-and-alert">
+            <% if(error.password){%>
+              <div class="error error-message"><%=error.password %></div>
+            <% } %>
+            <div class="input">
+              <input 
+                class="password <%=error.password ? 'error-input' : '' %>"
+                value="<% if(oldInput.password){%><%=oldInput.password %> <%} %>"
+                type="password" 
+                name="password" 
+                placeholder="password">
+              <f class="show-password fa fa-eye"></f>
+            </div>
+          </div>
+        </div>
+        
+        <button class="btn btn-register">Login</button>
+
+      </form>
+    </div>
+  </div>
+
+  <%-include('../partial/footer.ejs') %>
+  <%-include('../partial/end.ejs') %>

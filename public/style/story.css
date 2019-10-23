@@ -1,0 +1,30 @@
+.story-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+  .story-container .story-box {
+    background-color: #e2e4e4;
+    min-height: 200px;
+    min-width: 290px;
+    padding: 10px;
+    margin: 10px 0px; }
+    .story-container .story-box .story-title {
+      text-align: center; }
+    .story-container .story-box .story-description {
+      text-align: center; }
+
+.story-details_container {
+  text-align: center; }
+  .story-details_container .story-title {
+    font-size: 60px;
+    color: #474747;
+    font-weight: bold; }
+  .story-details_container .story-description {
+    font-size: 16px;
+    color: #686868; }
+
+.no-button {
+  border: none;
+  outline: none;
+  background: transparent; }
