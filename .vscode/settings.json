@@ -11,7 +11,8 @@
   "editor.tabSize": 2,
   "editor.lineHeight": 21,
   "editor.fontLigatures": true,
-
+  "terminal.integrated.shell.windows": "C:\\Program Files (x86)\\Git\\bin\\bash.exe",
+  
   "files.associations": {
     "*.jsx": "javascriptreact",
     "*.js": "javascript"
