@@ -1,0 +1,81 @@
+@import './_variable.scss';
+@import './_mixin.scss';
+@import './media-queries.scss';
+
+*{
+  box-sizing: border-box;
+}
+
+.dashboard{
+
+  &__title{
+    color: #ff6767
+  }
+
+.dashboard__image__container{
+  margin-top: 30px;
+  box-sizing: border-box;
+  height: 400px;
+  display: block;
+
+  .dashboard__photo{
+    position: relative;
+    height: 300px;
+    width: 800px;
+    display: block;
+    margin: auto;
+
+    .dashboard__photo_cover{
+      height: 100%;
+      width: 800px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 10px);
+    }
+    .dashboard__photo_profile{
+      position: absolute;
+      width: 20%;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      border-radius:50%; 
+    }
+  }
+}
+  
+
+  .dashboard__name{
+    text-align: center;
+    color: #535353;
+  }
+  .dashboard__education{
+    text-align: center;
+    color: #535353;
+  }
+  .dashboard__profession{
+    text-align: center;
+    color: #535353;
+  }
+  .dashboard__exprience{
+    text-align: center;
+    color: #535353;
+    strong{
+      color: #1472ff;
+    }
+  }
+  .dashboard__description{
+    font-size: 14px;
+    color: #686767;
+    line-height: 1.5
+  }
+}
+
+.file{
+  border: 0;
+  outline: 0;
+
+
+  .change-profile-photo{
+  }
+}

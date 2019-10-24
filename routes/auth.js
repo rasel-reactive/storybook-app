@@ -61,4 +61,7 @@ router.post("/login", noAccess, authController.login);
 
 router.get("/logout", auth, authController.logOut);
 
+router.get('/dashboard', auth, authController.getDashboardPage)
+router.post('/upload-profile-photo', auth, authController.uploadProfilePhoto)
+
 module.exports = router;

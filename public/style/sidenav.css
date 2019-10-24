@@ -1,11 +1,11 @@
 .hide-side-nav {
   width: 0;
   font-size: 0px;
-  animation-name: inline-u457b8d69;
+  animation-name: inline-ufbadc78f;
   animation-duration: 1s;
   animation-iteration-count: linear; }
 
-@keyframes inline-u457b8d69 {
+@keyframes inline-ufbadc78f {
   0% {
     width: 300px; }
   100% {
@@ -48,13 +48,13 @@
         font-weight: bold; }
 
 .show-sidebar {
-  animation-name: inline-ufff50692;
+  animation-name: inline-ucaf6746c;
   animation-duration: 1s;
   animation-iteration-count: linear;
   width: 160px;
   font-size: 16px; }
 
-@keyframes inline-ufff50692 {
+@keyframes inline-ucaf6746c {
   0% {
     width: 0vw;
     font-size: 0px; }
@@ -62,12 +62,12 @@
     width: 160px; } }
   @media (min-width: 768px) and (max-width: 1023px) {
     .show-sidebar {
-      animation-name: inline-u68f3967b;
+      animation-name: inline-ua666764f;
       animation-duration: 1s;
       animation-iteration-count: linear;
       font-size: 16px;
       width: 190px; }
-    @keyframes inline-u68f3967b {
+    @keyframes inline-ua666764f {
       0% {
         width: 0vw;
         font-size: 0px; }
@@ -75,12 +75,12 @@
         width: 190px; } } }
   @media (min-width: 1024px) and (max-width: 1199px) {
     .show-sidebar {
-      animation-name: inline-u4611afb8;
+      animation-name: inline-u5f86b2d2;
       animation-duration: 1s;
       animation-iteration-count: linear;
       font-size: 16px;
       width: 200px; }
-    @keyframes inline-u4611afb8 {
+    @keyframes inline-u5f86b2d2 {
       0% {
         width: 0vw;
         font-size: 0px; }
@@ -88,12 +88,12 @@
         width: 200px; } } }
   @media (min-width: 1024px) and (max-width: 2500px) {
     .show-sidebar {
-      animation-name: inline-uf267a402;
+      animation-name: inline-u8c6829a3;
       animation-duration: 1s;
       animation-iteration-count: linear;
       font-size: 16px;
       width: 220px; }
-    @keyframes inline-uf267a402 {
+    @keyframes inline-u8c6829a3 {
       0% {
         width: 0vw;
         font-size: 0px; }

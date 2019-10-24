@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String
     },
+    album:[],
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"

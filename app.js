@@ -7,6 +7,31 @@ const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash')
 const passport = require('passport')
+const multer = require('multer')
+const FileNameGen = require('./utils/fileTools')
+
+
+// Multer Configuration 
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb)=> {
+    cb(null, 'images')
+  },
+  filename:(req, file, cb)=> {
+    let name = new FileNameGen(null, file.originalname)
+    cb(null, name.fileName)
+  }
+})
+
+const fileFilter = (req, file, cb)=> {
+  if(file.mimetype === 'image/jpg' || 
+    file.mimetype === 'image/png' || 
+    file.mimetype === 'image/jpeg')
+  {
+    cb(null, true)
+  } else {
+    cb(null, false)
+  }
+}
 
 
 // Registered Routes
@@ -19,9 +44,14 @@ Passport(passport)
 
 
 const app = express();
-app.use(express.static(path.join(__dirname, "public")));
+
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image'))
+
+app.use(express.static(path.join(__dirname, "public")));
+app.use('/images', express.static(path.join(__dirname, "images")));
 
 // ejs view engine middleware
 app.set("view engine", "ejs");
@@ -42,7 +72,7 @@ app.use(passport.session())
 
 app.use(flash())
 
-// Global Variable...........
+//! Global Variable...........
 app.use((req, res, next)=>{
   res.locals.success_msg = req.flash('success_msg')[0];
   res.locals.error_msg = req.flash('error_msg')[0];
@@ -68,10 +98,20 @@ app.use((req, res, next)=>{
 app.use('/auth', authRoutes)
 app.use('/stories', storyRoutes)
 
+
+app.get('/dashboard', (req, res, next)=>{
+  res.render('auth/dashboard', {
+    pageTitle: "Dashboard",
+    path:"/dashboard"
+  })
+})
+
 app.use('/', (req, res, next)=>{
   res.redirect('/stories')
   next()
 })
+
+
 
 //! Redirect Not Found Page 
 // app.use((error, req, res, next)=>{

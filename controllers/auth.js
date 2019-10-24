@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 const Joi = require("@hapi/joi");
-const passport = require('passport')
+const passport = require("passport");
 
 // const { validationResult } = require("express-validator");
 
@@ -22,7 +22,6 @@ exports.signupPage = (req, res, next) => {
     oldInput: { username: "", email: "", password: "", confirmPassword: "" }
   });
 };
-
 
 // //! Register Logic with express Validator..........
 // exports.signup = async (req, res, next) => {
@@ -64,9 +63,6 @@ exports.signupPage = (req, res, next) => {
 
 // };
 
-
-
-
 //. Register Logic with Joi Validator............
 exports.signup = async (req, res, next) => {
   const { password, confirmPassword, email, username } = req.body;
@@ -76,22 +72,22 @@ exports.signup = async (req, res, next) => {
       .required()
       .min(3)
       .trim()
-      .label('Username'),
+      .label("Username"),
     email: Joi.string()
       .email({ minDomainSegments: 2 })
       .required()
-      .label('E-Mail'),
+      .label("E-Mail"),
     password: Joi.string()
       .required()
-      .label('Password'),
+      .label("Password"),
     confirmPassword: Joi.string()
       .required()
-      .label('ConfirmPassword')
+      .label("ConfirmPassword")
   });
 
   const option = { abortEarly: false };
   let { error } = schema.validate(req.body, option);
-  
+
   try {
     if (error) {
       let createError = new Error();
@@ -99,50 +95,49 @@ exports.signup = async (req, res, next) => {
       throw createError;
     }
 
-      //. Check Password Match or Not
-      let passwordMatch = password === confirmPassword
-      if(!passwordMatch){
-      let details = []
-        details.push({
-          message: "Password doesn't match",
-          path: ["confirmPassword"]
-        });
-        let copyError = {...error}
-        copyError.details = details
+    //. Check Password Match or Not
+    let passwordMatch = password === confirmPassword;
+    if (!passwordMatch) {
+      let details = [];
+      details.push({
+        message: "Password doesn't match",
+        path: ["confirmPassword"]
+      });
+      let copyError = { ...error };
+      copyError.details = details;
 
-        let createError = new Error();
-        createError.error = copyError;
-        throw createError;
+      let createError = new Error();
+      createError.error = copyError;
+      throw createError;
     }
 
-      //. Check User already Registered Or Not........
-      let user = await User.findOne({ email: email });
-      let details = []
-      if (user) {
-        details.push({
-          message: "this email already register",
-          path: ["email"]
-        });
-        let copyError = {...error}
-        copyError.details = details
-
-        let createError = new Error();
-        createError.error = copyError;
-        throw createError;
-      }
-
-      //. Password Hased...........
-      let salt = await bcrypt.genSalt(12)
-      let hasedPassword = await bcrypt.hash(password, salt);
-      user = new User({
-        username,
-        email,
-        password: hasedPassword
+    //. Check User already Registered Or Not........
+    let user = await User.findOne({ email: email });
+    let details = [];
+    if (user) {
+      details.push({
+        message: "this email already register",
+        path: ["email"]
       });
-      await user.save();
-      req.flash('success_msg', 'You are Registered')
-      res.redirect("/auth/login");
+      let copyError = { ...error };
+      copyError.details = details;
 
+      let createError = new Error();
+      createError.error = copyError;
+      throw createError;
+    }
+
+    //. Password Hased...........
+    let salt = await bcrypt.genSalt(12);
+    let hasedPassword = await bcrypt.hash(password, salt);
+    user = new User({
+      username,
+      email,
+      password: hasedPassword
+    });
+    await user.save();
+    req.flash("success_msg", "You are Registered");
+    res.redirect("/auth/login");
   } catch (ex) {
     let errorMessage = {};
     if (ex.error) {
@@ -159,16 +154,13 @@ exports.signup = async (req, res, next) => {
   }
 };
 
-
-
-exports.loginPage =  (req, res, next) => {
+exports.loginPage = (req, res, next) => {
   res.render("auth/login", {
     pageTitle: "Login page",
     path: "/auth/login",
     error: {},
-    oldInput: { email: "", password: "" },
-  });  
-  
+    oldInput: { email: "", password: "" }
+  });
 };
 
 exports.login = async (req, res, next) => {
@@ -194,48 +186,45 @@ exports.login = async (req, res, next) => {
       throw customError;
     }
 
-    let user = await User.findOne({email: email})
-    if(!user){     
-      let customError = { details: [{message:"this email not yet registered", path:['email']}] }        
+    let user = await User.findOne({ email: email });
+    if (!user) {
+      let customError = {
+        details: [{ message: "this email not yet registered", path: ["email"] }]
+      };
       const newError = new Error();
-      newError.error = customError;           
-      throw newError  
+      newError.error = customError;
+      throw newError;
     }
 
-    passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/auth/login',
-      failureFlash: true,
-    })(req, res, next)
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/auth/login",
+      failureFlash: true
+    })(req, res, next);
 
-    
     // Business Logic.............
-
-  } catch (ex) {    
+  } catch (ex) {
     // console.log(ex);
     let errorMessage = {};
-    if(ex.error){
+    if (ex.error) {
       ex.error.details.reverse().forEach(err => {
         errorMessage[err.path] = err.message;
       });
     }
     res.render("auth/login", {
       pageTitle: "Login Page",
-      path: "/auth/login",             
+      path: "/auth/login",
       error: errorMessage,
       oldInput: { email: email, password: req.body.password }
     });
   }
 };
 
-
-
-exports.logOut = (req, res, next)=>{
+exports.logOut = (req, res, next) => {
   req.logout();
-  req.flash('success_msg', "You are Logouted")
-  res.redirect('/auth/login')
-}
-
+  req.flash("success_msg", "You are Logouted");
+  res.redirect("/auth/login");
+};
 
 exports.getAllUser = async (req, res, next) => {
   try {
@@ -244,4 +233,27 @@ exports.getAllUser = async (req, res, next) => {
     console.log(err);
     res.send(err);
   }
+};
+
+exports.getDashboardPage = (req, res, next) => {
+  res.render("auth/dashboard", {
+    pageTitle: "Dashboard",
+    path: "dashboard"
+  });
+};
+
+exports.uploadProfilePhoto = (req, res, next) => {
+  const image = req.file;
+  if (!image) {
+    return console.log("Please Select a Image");
+  }
+  User.findByIdAndUpdate(req.user._id, {
+    avatar:  image.path,
+    $push: { album: { image1: image.path } }
+  }).exec((err, result) => {
+  if(!err)
+    console.log(result);
+  });
+
+  res.redirect('/auth/dashboard')
 };
