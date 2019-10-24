@@ -245,15 +245,21 @@ exports.getDashboardPage = (req, res, next) => {
 exports.uploadProfilePhoto = (req, res, next) => {
   const image = req.file;
   if (!image) {
-    return console.log("Please Select a Image");
+    req.flash("error_msg", "please select a image file");
+    return res.redirect("/auth/dashboard");
   }
-  User.findByIdAndUpdate(req.user._id, {
-    avatar:  image.path,
-    $push: { album: { image1: image.path } }
-  }).exec((err, result) => {
-  if(!err)
-    console.log(result);
-  });
+  User.findByIdAndUpdate(
+    req.user._id,
+    {
+      avatar: image.path,
+      $push: { album: { image1: image.path } },
+      useFindAndModify: false
+    },
+    { useFindAndModify: false }
 
-  res.redirect('/auth/dashboard')
+  ).exec((err, result) => {
+    if (!err) req.flash("success_msg", "profile photo added........");
+    res.redirect("/auth/dashboard");
+  });
 };
+
