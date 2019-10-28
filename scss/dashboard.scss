@@ -35,7 +35,8 @@
     }
     .dashboard__photo_profile{
       position: absolute;
-      width: 20%;
+      width: 160px;
+      height: 160px;
       top: 70%;
       left: 50%;
       transform: translate(-50%, 0%);
@@ -77,5 +78,17 @@
 
 
   .change-profile-photo{
+  }
+}
+
+.preview_picture_container{
+  width: 160px;
+  height: 160px;
+
+  .preview-image{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius:50%; 
   }
 }

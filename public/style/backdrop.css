@@ -12,14 +12,14 @@
   overflow: hidden; }
 
 .show-backdrop {
-  animation-name: inline-u34356689;
+  animation-name: inline-u0c88571f;
   animation-duration: 1s;
   animation-iteration-count: linear;
   font-size: 16px;
   width: 100%;
   opacity: 1; }
 
-@keyframes inline-u34356689 {
+@keyframes inline-u0c88571f {
   0% {
     opacity: 0; }
   100% {

@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const Joi = require("@hapi/joi");
 const passport = require("passport");
+const fs = require('fs')
 
 // const { validationResult } = require("express-validator");
 
@@ -242,6 +243,8 @@ exports.getDashboardPage = (req, res, next) => {
   });
 };
 
+
+//. Added Photos
 exports.uploadProfilePhoto = (req, res, next) => {
   const image = req.file;
   if (!image) {
@@ -263,3 +266,20 @@ exports.uploadProfilePhoto = (req, res, next) => {
   });
 };
 
+
+//. Update Profile Photos
+exports.changeProfilePic = async (req, res, next)=>{
+  const pic = req.file
+  if(!pic){
+    req.flash('error_msg', 'Please Choose a Picture')
+    return res.redirect('/auth/dashboard')
+  }
+
+  const currUser = await User.findById(req.user._id)
+  fs.unlink(currUser.avatar, (err, result)=>{})
+  currUser.avatar = pic.path
+  currUser.save()
+
+  req.flash('success_msg', "Profile Picture Changed...........")
+  res.redirect('/auth/dashboard')
+}

@@ -17,8 +17,8 @@
     <div class="dashboard">
       <h2 class="dashboard__title">User Dashboard</h2>
 
-      <form action="/auth/upload-profile-photo" method="post" enctype="multipart/form-data">
-        <input class="change-profile-photo" type="file" name="image">
+      <form class="" action="/auth/upload-profile-photo" method="post" enctype="multipart/form-data">
+        <input class="upload-profile-photo" type="file" name="image">
         <button type="submit">upload</button>
       </form>
 
@@ -28,9 +28,16 @@
           <img src="/<%=user.avatar %> " alt="profile-photo" class="dashboard__photo_profile">
         </div>
       </div>
+
+      <form action="/auth/change-profile-photo" method="post" enctype="multipart/form-data">
+        <div class="preview_picture_container dn"></div>
+        <input class="change-profile-photo" type="file" name="image">
+        <button type="submit">Change Profile Pic</button>
+      </form>
+      
       <h2 class="dashboard__name">John Doe</h2>
       <h3 class="dashboard__education">BCS from National University</h3>
-      <h3 class="dashboard__profession">Web Developer, Freelancing</h3>
+      <h3 class="dashboard__profession">Web Developer and Freelancer</h3>
       <p class="dashboard__exprience">
         <strong>HTML</strong>
         <strong>CSS3</strong>

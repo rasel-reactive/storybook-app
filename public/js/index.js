@@ -61,3 +61,21 @@ backdrop.addEventListener('click', function(e){
     container.classList.remove('add-blur')
   })
 })
+
+
+//!!!!!  Preview Profile Photo
+let profilePhoto = document.querySelector('.change-profile-photo')
+let previewPhotoContainer = document.querySelector('.preview_picture_container')
+
+profilePhoto.addEventListener('input', function(e){
+  let image =  e.target.files[0]
+  
+  const reader = new FileReader()
+  reader.readAsDataURL(image)
+  reader.onload = (e)=>{ 
+    previewPhotoContainer.style.display = 'block'
+    previewPhotoContainer.innerHTML = `<div class="preview-image" style="background-image:url(${e.target.result})" ></div>`
+  };
+
+  reader.onerror = (err)=> console.log(err);  
+})

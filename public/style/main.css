@@ -10,11 +10,11 @@ body {
 .flash {
   text-align: center;
   box-shadow: 3px 3px 5px 0px rgba(134, 134, 134, 0.925);
-  animation-name: inline-ub3ce2343;
+  animation-name: inline-ua11dacb1;
   animation-duration: 1s;
   animation-iteration-count: linear; }
 
-@keyframes inline-ub3ce2343 {
+@keyframes inline-ua11dacb1 {
   0% {
     transform: scale(1); }
   100% {
@@ -24,11 +24,11 @@ body {
   font-size: 14px;
   padding: 7px 0px;
   height: auto;
-  animation-name: inline-ucb104083;
+  animation-name: inline-u27d6aa49;
   animation-duration: 1s;
   animation-iteration-count: linear; }
 
-@keyframes inline-ucb104083 {
+@keyframes inline-u27d6aa49 {
   0% {
     transform: scale(0); }
   100% {
@@ -48,3 +48,6 @@ body {
   -moz-filter: blur(3px);
   -o-filter: blur(13x);
   -ms-filter: blur(3px); }
+
+.dn {
+  display: none; }
